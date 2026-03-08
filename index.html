@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dosha Spa</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1 class="titulo">Dosha Spa</h1>
+
+<p class="subtitulo">
+En nombre de la cosmetóloga terapeuta  
+<strong>Itzel Iveth Bolaños Bautista</strong>
+</p>
+
+</header>
+
+
+<section class="servicios">
+
+<h2>Tratamientos Corporales</h2>
+
+<div class="servicios-grid">
+
+<div class="servicio" onclick="abrirServicio('drenaje')">Drenaje Linfático</div>
+
+<div class="servicio" onclick="abrirServicio('postoperatorio')">Masajes Post-Operatorios</div>
+
+<div class="servicio" onclick="abrirServicio('maderoterapia')">Masajes Reductivos con Maderoterapia</div>
+
+<div class="servicio" onclick="abrirServicio('ventosas')">Masaje Descontracturante con Ventosas</div>
+
+<div class="servicio" onclick="abrirServicio('piedras')">Masaje con Piedras Calientes</div>
+
+<div class="servicio" onclick="abrirServicio('relajante')">Masaje Relajante</div>
+
+<div class="servicio" onclick="abrirServicio('sueco')">Masaje Sueco</div>
+
+<div class="servicio" onclick="abrirServicio('anticelulitico')">Anticelulítico</div>
+
+<div class="servicio" onclick="abrirServicio('velodenovia')">Velo de Novia</div>
+
+</div>
+
+
+<h2>Tratamientos Faciales</h2>
+
+<div class="servicios-grid">
+
+<div class="servicio" onclick="abrirServicio('limpiezaprofunda')">Facial de Limpieza Profunda</div>
+
+<div class="servicio" onclick="abrirServicio('facialespersonalizados')">Faciales Personalizados</div>
+
+<div class="servicio" onclick="abrirServicio('secuelasacne')">Secuelas de Acné</div>
+
+<div class="servicio" onclick="abrirServicio('manchas')">Manchas</div>
+
+<div class="servicio" onclick="abrirServicio('controlacne')">Facial Control Acné</div>
+
+<div class="servicio" onclick="abrirServicio('rejuvenecimiento')">Rejuvenecimiento</div>
+
+<div class="servicio" onclick="abrirServicio('peeling')">Peeling</div>
+
+<div class="servicio" onclick="abrirServicio('pieldeseda')">Piel de Seda</div>
+
+<div class="servicio" onclick="abrirServicio('dermapen')">Dermapen</div>
+
+<div class="servicio" onclick="abrirServicio('despigmentante')">Despigmentante</div>
+
+</div>
+
+</section>
+
+
+
+<form onsubmit="enviarWhatsApp(); return false;">
+
+<input type="text" name="nombre" placeholder="Nombre completo" required>
+
+<input type="email" name="correo" placeholder="Correo electrónico" required>
+
+<select name="servicio" required>
+
+<option value="">Servicio deseado</option>
+
+<option>Drenaje Linfático</option>
+<option>Masajes Post-Operatorios</option>
+<option>Masajes Reductivos con Maderoterapia</option>
+<option>Masaje Descontracturante con Ventosas</option>
+<option>Masaje con Piedras Calientes</option>
+<option>Masaje Relajante</option>
+<option>Masaje Sueco</option>
+<option>Anticelulítico</option>
+<option>Velo de Novia</option>
+
+<option>Facial de Limpieza Profunda</option>
+<option>Faciales Personalizados</option>
+<option>Secuelas de Acné</option>
+<option>Manchas</option>
+<option>Facial Control Acné</option>
+<option>Rejuvenecimiento</option>
+<option>Peeling</option>
+<option>Piel de Seda</option>
+<option>Dermapen</option>
+<option>Despigmentante</option>
+
+</select>
+
+<input type="date" name="fecha" required>
+
+<input type="time" name="hora" required>
+
+<button type="submit" class="btn-agendar">
+Agendar cita
+</button>
+
+</form>
+
+<section class="redes">
+
+<a href="https://wa.me/524431069059" target="_blank" class="btn-red whatsapp">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<a href="https://www.facebook.com/share/1AnJYvq2bS/?mibextid=wwXIfr" target="_blank" class="btn-red facebook">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+</a>
+
+<a href="https://www.instagram.com/doshas_spa?igsh=ZTN5ZjRtbWMydTc=" target="_blank" class="btn-red instagram">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
+</a>
+
+</section>
+
+
+<section class="contacto">
+
+<h2>Ubicación</h2>
+
+<p>
+Periférico Paseo de la República #6338  
+Colonia Lázaro Cárdenas  
+Morelia, México
+</p>
+
+</section>
+
+<footer>
+
+<p>© 2026 Dosha Spa</p>
+
+</footer>
+
+<div id="ventanaServicio" class="modal">
+
+<div class="contenido-modal">
+
+<h2 id="tituloServicio"></h2>
+
+<p id="textoServicio"></p>
+
+<button onclick="cerrarServicio()">Cerrar</button>
+
+</div>
+
+</div>
+<script>
+
+function abrirServicio(servicio){
+
+let titulo=""
+let texto=""
+
+if(servicio=="drenaje"){
+titulo="Drenaje Linfático"
+texto="Masaje terapéutico suave que estimula el sistema linfático para eliminar líquidos retenidos, desinflamar el cuerpo y mejorar la circulación."
+}
+
+if(servicio=="postoperatorio"){
+titulo="Masajes Post-Operatorios"
+texto="Tratamiento especializado que ayuda a reducir inflamación, acelerar la recuperación y mejorar los resultados después de procedimientos estéticos o cirugías."
+}
+
+if(servicio=="maderoterapia"){
+titulo="Masajes Reductivos con Maderoterapia"
+texto="Técnica que utiliza herramientas de madera para moldear el cuerpo, reducir grasa localizada y mejorar la circulación."
+}
+
+if(servicio=="ventosas"){
+titulo="Masaje Descontracturante con Ventosas"
+texto="Masaje profundo que utiliza ventosas para liberar tensión muscular, mejorar la circulación y aliviar contracturas."
+}
+
+if(servicio=="piedras"){
+titulo="Masaje con Piedras Calientes"
+texto="Tratamiento relajante con piedras volcánicas calientes que ayudan a relajar los músculos, aliviar el estrés y equilibrar la energía del cuerpo."
+}
+
+if(servicio=="relajante"){
+titulo="Masaje Relajante"
+texto="Masaje suave enfocado en reducir el estrés, relajar los músculos y brindar una sensación profunda de bienestar."
+}
+
+if(servicio=="sueco"){
+titulo="Masaje Sueco"
+texto="Técnica clásica de masaje que mejora la circulación, relaja los músculos y ayuda a liberar tensión acumulada."
+}
+
+if(servicio=="anticelulitico"){
+titulo="Anticelulítico"
+texto="Tratamiento corporal diseñado para mejorar la apariencia de la piel, estimular la circulación y reducir la apariencia de la celulitis."
+}
+
+if(servicio=="velodenovia"){
+titulo="Velo de Novia"
+texto="Tratamiento corporal exfoliante que deja la piel suave, luminosa y renovada, ideal para ocasiones especiales."
+}
+
+if(servicio=="limpiezaprofunda"){
+titulo="Facial de Limpieza Profunda"
+texto="Tratamiento facial que elimina impurezas, puntos negros y células muertas, dejando la piel limpia y saludable."
+}
+
+if(servicio=="facialespersonalizados"){
+titulo="Faciales Personalizados"
+texto="Tratamientos diseñados según las necesidades específicas de tu piel para mejorar su salud y apariencia."
+}
+
+if(servicio=="secuelasacne"){
+titulo="Secuelas de Acné"
+texto="Tratamiento enfocado en mejorar cicatrices, marcas y textura de la piel causadas por el acné."
+}
+
+if(servicio=="manchas"){
+titulo="Manchas"
+texto="Tratamiento facial que ayuda a reducir manchas en la piel y mejorar la uniformidad del tono."
+}
+
+if(servicio=="controlacne"){
+titulo="Facial Control Acné"
+texto="Facial especializado para pieles con acné que ayuda a limpiar profundamente, reducir inflamación y controlar brotes."
+}
+
+if(servicio=="rejuvenecimiento"){
+titulo="Rejuvenecimiento"
+texto="Tratamiento facial que estimula la producción de colágeno para mejorar la firmeza, luminosidad y juventud de la piel."
+}
+
+if(servicio=="peeling"){
+titulo="Peeling"
+texto="Tratamiento exfoliante que elimina células muertas para renovar la piel y mejorar su textura y luminosidad."
+}
+
+if(servicio=="pieldeseda"){
+titulo="Piel de Seda"
+texto="Facial diseñado para dejar la piel extremadamente suave, hidratada y luminosa."
+}
+
+if(servicio=="dermapen"){
+titulo="Dermapen"
+texto="Tratamiento avanzado que estimula la producción de colágeno mediante microagujas para mejorar textura, manchas y cicatrices."
+}
+
+if(servicio=="despigmentante"){
+titulo="Despigmentante"
+texto="Tratamiento que ayuda a reducir manchas y unificar el tono de la piel."
+}
+
+document.getElementById("tituloServicio").innerText=titulo
+document.getElementById("textoServicio").innerText=texto
+
+document.getElementById("ventanaServicio").style.display="flex"
+
+}
+
+function cerrarServicio(){
+
+document.getElementById("ventanaServicio").style.display="none"
+
+}
+
+</script>
+<script>
+
+function enviarWhatsApp(){
+
+let nombre = document.querySelector("input[name='nombre']").value
+let correo = document.querySelector("input[name='correo']").value
+let servicio = document.querySelector("select[name='servicio']").value
+let fecha = document.querySelector("input[name='fecha']").value
+let hora = document.querySelector("input[name='hora']").value
+
+let mensaje =
+"Hola, quiero agendar una cita en Dosha Spa:%0A%0A" +
+"Nombre: " + nombre + "%0A" +
+"Correo: " + correo + "%0A" +
+"Servicio: " + servicio + "%0A" +
+"Fecha: " + fecha + "%0A" +
+"Hora: " + hora
+
+window.open("https://wa.me/524431069059?text=" + mensaje)
+
+}
+
+</script>
+</body>
+</html>
